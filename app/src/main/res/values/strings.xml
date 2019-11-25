@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Tasks</string>
+    <string name="tasks_no_tasks_yet">No tasks yet</string>
+    <string name="tasks_item_completedAt">Completed at %1$s</string>
+    <string name="tasks_item_createdAt">Created at %1$s</string>
+    <string name="imgAddTask">Add task</string>
+    <string name="tasks_txtConcept">Add task…</string>
+    <string name="tasks_task_deleted">Deleted task: %1$s</string>
+    <string name="tasks_recreate">Recreate</string>
+    <string name="tasks_mnuShare">Share</string>
+    <string name="tasks_mnuFilter">Filter</string>
+    <string name="tasks_mnuFilterAll">All</string>
+    <string name="tasks_mnuFilterPending">Pending</string>
+    <string name="tasks_mnuFilterCompleted">Completed</string>
+    <string name="tasks_title_all">Tasks</string>
+    <string name="tasks_title_pending">Tasks (pending)</string>
+    <string name="tasks_title_completed">Tasks (completed)</string>
+    <string name="tasks_mnuDelete">Delete all</string>
+    <string name="tasks_mnuComplete">Mark all as completed</string>
+    <string name="tasks_mnuPending">Mark all as pending</string>
+    <string name="tasks_no_tasks_to_delete">No tasks to delete</string>
+    <string name="tasks_no_tasks_to_share">No tasks to share</string>
+    <string name="tasks_no_pending_tasks_yet">No pending tasks yet</string>
+    <string name="tasks_no_completed_tasks_yet">No completed tasks yet</string>
+    <string name="tasks_no_tasks_to_mark_as_completed">No tasks to mark as completed</string>
+    <string name="tasks_no_tasks_to_mark_as_pending">No tasks to mark as pending</string>
+</resources>

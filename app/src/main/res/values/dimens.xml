@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tasks_item_margin">16dp</dimen>
+    <dimen name="tasks_lblEmptyView_drawablePadding">8dp</dimen>
+    <dimen name="tasks_llAddTaskPanel_horizontal_padding">16dp</dimen>
+    <dimen name="tasks_llAddTaskPanel_vertical_padding">3dp</dimen>
+    <dimen name="tasks_item_lblConcept_textSize">16sp</dimen>
+    <dimen name="tasks_item_viewBar_width">8dp</dimen>
+</resources>

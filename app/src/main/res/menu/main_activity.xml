@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mnuFilter"
+        android:icon="@drawable/ic_filter_list_black_24dp"
+        android:title="@string/tasks_mnuFilter"
+        app:showAsAction="ifRoom|withText"
+        app:iconTint="@color/colorWhite">
+        <menu>
+            <group
+                android:id="@+id/mnuFilterFilter"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/mnuFilterAll"
+                    android:title="@string/tasks_mnuFilterAll"
+                    android:icon="@drawable/ic_iconmonstr_clipboard_1"
+                    android:checked="true"/>
+                <item
+                    android:id="@+id/mnuFilterPending"
+                    android:icon="@drawable/ic_iconmonstr_clipboard_7"
+                    android:title="@string/tasks_mnuFilterPending"/>
+                <item
+                    android:id="@+id/mnuFilterCompleted"
+                    android:icon="@drawable/ic_iconmonstr_clipboard_5"
+                    android:title="@string/tasks_mnuFilterCompleted"/>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mnuShare"
+        android:icon="@drawable/ic_share_black_24dp"
+        android:title="@string/tasks_mnuShare"
+        app:showAsAction="ifRoom|withText"
+        app:iconTint="@color/colorWhite" />
+    <item
+        android:id="@+id/mnuComplete"
+        android:icon="@drawable/ic_iconmonstr_clipboard_5"
+        android:title="@string/tasks_mnuComplete"
+        app:showAsAction="ifRoom|withText"
+        app:iconTint="@color/colorWhite" />
+    <item
+        android:id="@+id/mnuPending"
+        android:icon="@drawable/ic_iconmonstr_clipboard_7"
+        android:title="@string/tasks_mnuPending"
+        app:showAsAction="ifRoom|withText"
+        app:iconTint="@color/colorWhite" />
+    <item
+        android:id="@+id/mnuDelete"
+        android:icon="@drawable/ic_delete_black_24dp"
+        android:title="@string/tasks_mnuDelete"
+        app:showAsAction="ifRoom|withText"
+        app:iconTint="@color/colorWhite" />
+</menu>
