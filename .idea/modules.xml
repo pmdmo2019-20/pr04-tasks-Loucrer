@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PR04-Tasks.iml" filepath="$PROJECT_DIR$/PR04-Tasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pr04-tasks-Loucrer-PR04-Tasks.iml" filepath="$PROJECT_DIR$/pr04-tasks-Loucrer-PR04-Tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/pr04-tasks-Loucrer-app.iml" filepath="$PROJECT_DIR$/app/pr04-tasks-Loucrer-app.iml" />
     </modules>
   </component>
 </project>
