@@ -47,7 +47,7 @@ object LocalRepository : Repository {
         if(concept.isNotBlank()){
             val dateTime = LocalDateTime.now()
             val formatTime: String = dateTime.format(
-                DateTimeFormatter.ofPattern("M/d/y , HH:mm:ss")
+                DateTimeFormatter.ofPattern("MM/dd/yyyy , HH:mm:ss")
             )
             id = (tasks.size + 1).toLong()
             val task = Task(id, concept, "Created at: $formatTime", false, "No completed")
