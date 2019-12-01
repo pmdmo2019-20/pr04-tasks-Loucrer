@@ -16,10 +16,7 @@ object LocalRepository : Repository {
 
     private val tasks : MutableList<Task> = mutableListOf()
     private var id: Long = 1
-    @RequiresApi(Build.VERSION_CODES.O)
-    private var date = LocalDate.now()
-    @RequiresApi(Build.VERSION_CODES.O)
-    private var hour = LocalTime.now()
+
 
 
 
@@ -67,7 +64,6 @@ object LocalRepository : Repository {
         if (position >= 0){
             tasks.removeAt(position)
         }
-
     }
 
     override fun deleteTasks(taskIdList: List<Long>) {
