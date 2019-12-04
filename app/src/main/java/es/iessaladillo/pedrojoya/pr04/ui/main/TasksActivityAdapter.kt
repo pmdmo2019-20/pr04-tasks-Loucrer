@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.tasks_activity_item.*
 import kotlinx.android.synthetic.main.tasks_activity_item.view.*
 
 
+@Suppress("DEPRECATION")
 class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolder>() {
 
     private var data: List<Task> = emptyList()
@@ -35,7 +36,6 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = layoutInflater.inflate(R.layout.tasks_activity_item, parent, false)
         return ViewHolder(itemView)
-
     }
 
     override fun getItemCount(): Int {
@@ -80,7 +80,6 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
                     containerView.lblConcept.strikeThrough(true)
                     containerView.viewBar.run {
                         background = resources.getDrawable(R.color.colorCompletedTask)
-
                         containerView.lblCompleted.text = completedAt
                     }
                 }

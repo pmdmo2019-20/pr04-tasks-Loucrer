@@ -5,21 +5,19 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import es.iessaladillo.pedrojoya.pr04.data.entity.Task
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 object LocalRepository : Repository {
 
-
     private val tasks : MutableList<Task> = mutableListOf()
     private var id: Long = 1
-
-
-
-
 
     override fun queryAllTasks(): List<Task> {
         return tasks
@@ -45,10 +43,7 @@ object LocalRepository : Repository {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createTask(concept: String) {
         if(concept.isNotBlank()){
-            val dateTime = LocalDateTime.now()
-            val formatTime: String = dateTime.format(
-                DateTimeFormatter.ofPattern("MM/dd/yyyy , HH:mm:ss")
-            )
+            val formatTime: String = SimpleDateFormat("MM/dd/yyyy , HH:mm:ss").format(Date())
             id = (tasks.size + 1).toLong()
             val task = Task(id, concept, "Created at: $formatTime", false, "No completed")
             insertTask(task)

@@ -59,7 +59,6 @@ class TasksActivityViewModel(private val repository: Repository,
 
     init {
         refreshLists(repository.queryAllTasks())
-
     }
 
     // ACTION METHODS
@@ -68,21 +67,24 @@ class TasksActivityViewModel(private val repository: Repository,
     fun filterAll() {
         _currentFilterMenuItemId.value = R.id.mnuFilterAll
         _activityTitle.value = application.getString(R.string.tasks_title_all)
-        queryTasks(TasksActivityFilter.ALL)
+        _currentFilter.value = TasksActivityFilter.ALL
+        queryTasks(_currentFilter.value!!)
     }
 
     // Hace que se muestre en el RecyclerView sólo las tareas completadas.
     fun filterCompleted() {
         _currentFilterMenuItemId.value = R.id.mnuFilterCompleted
         _activityTitle.value = application.getString(R.string.tasks_title_completed)
-        queryTasks(TasksActivityFilter.COMPLETED)
+        _currentFilter.value = TasksActivityFilter.COMPLETED
+        queryTasks(_currentFilter.value!!)
     }
 
     // Hace que se muestre en el RecyclerView sólo las tareas pendientes.
     fun filterPending() {
         _currentFilterMenuItemId.value = R.id.mnuFilterPending
         _activityTitle.value = application.getString(R.string.tasks_title_pending)
-        queryTasks(TasksActivityFilter.PENDING)
+        _currentFilter.value = TasksActivityFilter.PENDING
+        queryTasks(_currentFilter.value!!)
     }
 
     // Agrega una nueva tarea con dicho concepto. Si la se estaba mostrando
@@ -117,8 +119,8 @@ class TasksActivityViewModel(private val repository: Repository,
             repository.deleteTasks(taskIdList)
         }else{
             _onShowMessage.value = Event(application.getString(R.string.tasks_task_deleted))
-        }
         queryTasks(_currentFilter.value!!)
+        }
     }
 
     // Marca como completadas todas las tareas mostradas actualmente en el RecyclerView,
@@ -130,8 +132,8 @@ class TasksActivityViewModel(private val repository: Repository,
             _onShowMessage.value = Event(application.getString(R.string.tasks_task_completed))
         }else{
             repository.markTasksAsCompleted(taskIdList)
+            queryTasks(_currentFilter.value!!)
         }
-        queryTasks(_currentFilter.value!!)
     }
 
     // Marca como pendientes todas las tareas mostradas actualmente en el RecyclerView,
@@ -143,8 +145,8 @@ class TasksActivityViewModel(private val repository: Repository,
             _onShowMessage.value = Event(application.getString(R.string.tasks_task_completed))
         }else{
             repository.markTasksAsPending(taskIdList)
+            queryTasks(_currentFilter.value!!)
         }
-        queryTasks(_currentFilter.value!!)
     }
 
     // Hace que se envíe un Intent con la lista de tareas mostradas actualmente
@@ -172,7 +174,7 @@ class TasksActivityViewModel(private val repository: Repository,
         }else{
             repository.markTaskAsPending(task.id)
         }
-        queryTasks(_currentFilter.value!!)
+            queryTasks(_currentFilter.value!!)
     }
 
     // Retorna si el concepto recibido es válido (no es una cadena vacía o en blanco)
@@ -199,6 +201,7 @@ class TasksActivityViewModel(private val repository: Repository,
         }
     }
 
+    /*INTENTS*/
     fun isActivityAvailable(ctx: Context, intent: Intent): Boolean {
         val packageManager = ctx.applicationContext.packageManager
         val appList = packageManager.queryIntentActivities(
@@ -208,23 +211,23 @@ class TasksActivityViewModel(private val repository: Repository,
         return appList.size > 0
     }
 
-    private fun sendIntents() :Intent{
-        var listToText = ""
-        tasks.value?.forEach{
-            listToText += it.concept + " "
-            listToText += it.createdAt + " "
-            listToText += if (it.completed) "Completado \n" else " Pendiente \n"
-        }
+        fun sendIntents() : Intent {
+            var listToText = ""
+            tasks.value?.forEach{
+                listToText += it.concept + " "
+                listToText += if (it.completed) "Completado \n" else " Pendiente \n"
+            }
 
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_SUBJECT,"Tasks")
-            putExtra(Intent.EXTRA_TEXT, listToText)
-            type = "text/plain"
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_SUBJECT,"Tasks")
+                putExtra(Intent.EXTRA_TEXT, listToText)
+                type = "text/plain"
+            }
+
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            return intent
         }
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        return intent
-    }
 
 }
 

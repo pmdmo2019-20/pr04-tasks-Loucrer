@@ -43,7 +43,6 @@ class TasksActivity : AppCompatActivity() {
     }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tasks_activity)
@@ -119,7 +118,7 @@ class TasksActivity : AppCompatActivity() {
 
     private fun observeMenu() {
         viewModel.activityTitle.observe(this) {
-            this.title = it
+            title = it
         }
         viewModel.currentFilterMenuItemId.observe(this) {
             checkMenuItem(it)
